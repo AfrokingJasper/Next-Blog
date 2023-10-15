@@ -15,7 +15,7 @@ function Hero() {
       {/* </div> */}
 
       <h1 className="font-bold text-3xl">Hi, I'm Fortune</h1>
-      <p className="w-[40%] text-center">
+      <p className="lg:w-[50%] text-center">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eos
         explicabo consequatur unde dolores voluptas expedita officia quibusdam
         exercitationem quos maiores.
