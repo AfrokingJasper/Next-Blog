@@ -2,8 +2,10 @@ import Link from "next/link";
 
 const MainNavigation = () => {
   return (
-    <header className="flex justify-between py-4 px-16 ">
-      <Link href="/">LOGO</Link>
+    <header className="flex justify-between items-center py-4 px-10 md:px-16 bg-gray-800 text-white">
+      <Link className="text-2xl font-bold" href="/">
+        FORTUNE.
+      </Link>
 
       <nav>
         <ul className="flex gap-5">
