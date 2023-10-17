@@ -13,7 +13,7 @@ function PostContent() {
   const imagePath = `/images/posts/${DUMMY_POST.slug}/${DUMMY_POST.image}`;
 
   return (
-    <article className="">
+    <article className="w-[90%] md:w-[70%] lg:w-[60%]  mx-auto bg-gray-100 mt-10">
       <PostHeader title={DUMMY_POST.title} image={imagePath} />
     </article>
   );
