@@ -1,58 +1,19 @@
 import AllPosts from "@/components/posts/all-post";
+import type { GetStaticProps } from "next";
+import { getAllPost } from "@/lib/post-util";
+import { AllPostsProps } from "..";
 
-const DUMMY_POST = [
-  {
-    slug: "getting-started-with-nextjs",
-    title: "Getting Started with NextJS",
-    image: "nextjs.jpg",
-    excerpt:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis nesciunt veritatis vero eaque numquam atque?",
-    date: "2022-02-10",
-  },
-  {
-    slug: "getting-started-with-nextjs",
-    title: "Getting Started with NextJS",
-    image: "nextjs.jpg",
-    excerpt:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis nesciunt veritatis vero eaque numquam atque?",
-    date: "2022-02-10",
-  },
-  {
-    slug: "getting-started-with-nextjs3",
-    title: "Getting Started with NextJS",
-    image: "nextjs.jpg",
-    excerpt:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis nesciunt veritatis vero eaque numquam atque?",
-    date: "2022-02-10",
-  },
-  {
-    slug: "getting-started-with-nextjs4",
-    title: "Getting Started with NextJS",
-    image: "nextjs.jpg",
-    excerpt:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis nesciunt veritatis vero eaque numquam atque?",
-    date: "2022-02-10",
-  },
-  {
-    slug: "getting-started-with-nextjs4",
-    title: "Getting Started with NextJS",
-    image: "nextjs.jpg",
-    excerpt:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis nesciunt veritatis vero eaque numquam atque?",
-    date: "2022-02-10",
-  },
-  {
-    slug: "getting-started-with-nextjs4",
-    title: "Getting Started with NextJS",
-    image: "nextjs.jpg",
-    excerpt:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis nesciunt veritatis vero eaque numquam atque?",
-    date: "2022-02-10",
-  },
-];
-
-function AllPostPage() {
-  return <AllPosts posts={DUMMY_POST} />;
+function AllPostPage(props: AllPostsProps) {
+  return <AllPosts posts={props.posts} />;
 }
+
+export const getStaticProps: GetStaticProps = () => {
+  const allPosts = getAllPost();
+  return {
+    props: {
+      posts: allPosts,
+    },
+  };
+};
 
 export default AllPostPage;

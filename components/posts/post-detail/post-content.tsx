@@ -1,4 +1,6 @@
 import PostHeader from "./post-header";
+import ReactMarkdown from "react-markdown";
+import { PostDetailProps } from "@/pages/posts/[slug]";
 
 const DUMMY_POST = {
   slug: "getting-started-with-nextjs",
@@ -9,12 +11,14 @@ const DUMMY_POST = {
   date: "2022-02-10",
 };
 
-function PostContent() {
-  const imagePath = `/images/posts/${DUMMY_POST.slug}/${DUMMY_POST.image}`;
+function PostContent(props: PostDetailProps) {
+  const { post } = props;
+  const imagePath = `/images/posts/${post.slug}/${post.image}`;
 
   return (
     <article className="w-[90%] md:w-[70%] lg:w-[60%]  mx-auto bg-gray-100 mt-10">
-      <PostHeader title={DUMMY_POST.title} image={imagePath} />
+      <PostHeader title={post.title} image={imagePath} />
+      <ReactMarkdown className="p-5">{post.excerpt}</ReactMarkdown>
     </article>
   );
 }

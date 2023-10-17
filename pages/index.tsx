@@ -2,6 +2,8 @@ import Hero from "@/components/home-page/hero";
 import FeaturedPost from "@/components/home-page/featured-post";
 import { Fragment } from "react";
 import { PostGridProps } from "@/components/posts/posts-grid";
+import type { GetStaticProps } from "next";
+import { getFeaturedPost } from "@/lib/post-util";
 
 const DUMMY_POST = [
   {
@@ -37,14 +39,28 @@ const DUMMY_POST = [
     date: "2022-02-10",
   },
 ];
+ export type AllPostsProps = {
+  posts: [];
+};
 
-function HomePage() {
+function HomePage(props: AllPostsProps) {
   return (
     <Fragment>
       <Hero />
-      <FeaturedPost posts={DUMMY_POST} />
+      <FeaturedPost posts={props.posts} />
     </Fragment>
   );
 }
+
+export const getStaticProps: GetStaticProps = () => {
+  const featuredPost = getFeaturedPost();
+  return {
+    props: {
+      posts: featuredPost,
+    },
+
+    revalidate: 60,
+  };
+};
 
 export default HomePage;
