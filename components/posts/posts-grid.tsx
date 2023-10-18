@@ -6,6 +6,7 @@ export type PostItemProps = {
   excerpt: string;
   date: string;
   slug: string;
+  content: string;
 };
 
 export type PostGridProps = {
@@ -23,6 +24,7 @@ function PostGrid(props: PostGridProps) {
           excerpt={post.excerpt}
           date={post.date}
           slug={post.slug}
+          content={post.content}
         />
       ))}
     </ul>

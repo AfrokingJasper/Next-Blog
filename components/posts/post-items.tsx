@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PostItemProps } from "./posts-grid";
 
 function PostItem(props: PostItemProps) {
-  const { image, title, excerpt, date, slug } = props;
+  const { image, title, excerpt, date, slug, content } = props;
   const formattedDate: string = new Date(date).toLocaleDateString("en-US", {
     day: "numeric",
     month: "long",
@@ -13,7 +13,7 @@ function PostItem(props: PostItemProps) {
   const imagePath = `/images/posts/${slug}/${image}`;
   const linkPath = `/posts/${slug}`;
   return (
-    <li className="text-center w-[90%] md:w-full lg:w-[80%] bg-gray-800">
+    <li className="text-center text-white w-[90%] md:w-full lg:w-[80%] bg-gray-800">
       <Link className="flex flex-col gap-5" href={linkPath}>
         <div className="flex  justify-center">
           <Image

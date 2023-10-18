@@ -12,6 +12,7 @@ export type PostDetailProps = {
     excerpt: string;
     isFeatured: boolean;
     slug: string;
+    content: string;
   };
 };
 
