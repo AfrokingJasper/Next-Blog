@@ -24,7 +24,7 @@ function Notification(props: NoteProps) {
   }
 
   return ReactDOM.createPortal(
-    <div className={`${background} w-[80%] p-5 mx-auto`}>
+    <div className={`${background} w-[90%] lg:w-[50%] p-5 mx-auto`}>
       <h2>{props.title}</h2>
       <p>{props.message}</p>
     </div>,
