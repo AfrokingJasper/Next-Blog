@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import { PostGridProps } from "@/components/posts/posts-grid";
 import type { GetStaticProps } from "next";
 import { getFeaturedPost } from "@/lib/post-util";
+import Head from "next/head";
 
 const DUMMY_POST = [
   {
@@ -39,13 +40,20 @@ const DUMMY_POST = [
     date: "2022-02-10",
   },
 ];
- export type AllPostsProps = {
+export type AllPostsProps = {
   posts: [];
 };
 
 function HomePage(props: AllPostsProps) {
   return (
     <Fragment>
+      <Head>
+        <title>Welcome to Fortune's Blog</title>
+        <meta
+          name="description"
+          content="i post about programing(javaScript)"
+        />
+      </Head>
       <Hero />
       <FeaturedPost posts={props.posts} />
     </Fragment>

@@ -1,8 +1,10 @@
+import React, { Fragment } from "react";
 import PostContent from "@/components/posts/post-detail/post-content";
 import { getPostData } from "@/lib/post-util";
 import type { GetStaticProps, GetStaticPaths } from "next";
 import { getPostFiles } from "@/lib/post-util";
 import { PostItemProps } from "@/components/posts/posts-grid";
+import Head from "next/head";
 
 export type PostDetailProps = {
   post: {
@@ -17,7 +19,15 @@ export type PostDetailProps = {
 };
 
 function PostDetailPage(props: PostDetailProps) {
-  return <PostContent post={props.post} />;
+  return (
+    <Fragment>
+      <Head>
+        <title>{props.post.title}</title>
+        <meta name="description" content={props.post.excerpt} />
+      </Head>
+      <PostContent post={props.post} />;
+    </Fragment>
+  );
 }
 
 export const getStaticProps: GetStaticProps = (context) => {
